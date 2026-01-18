@@ -232,12 +232,10 @@ public class ModArmorMaterials {
 
                 ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
 
-                // Önemli: Ingredient'i burada bir kez oluşturuyoruz ki JEI tararken sorun yaşamasın
                 Supplier<Ingredient> ingredientSupplier = () -> Ingredient.of(repairIngredient.get());
 
                 List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(location));
 
-                // ArmorMaterial kaydı
                 return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,
                         new ArmorMaterial(typeProtection, enchantability, equipSound, ingredientSupplier, layers, toughness, knockbackResistance));
         }
@@ -254,7 +252,6 @@ public class ModArmorMaterials {
 
                 ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
                 
-                // Ingredient önbelleğe alınıyor
                 Supplier<Ingredient> ingredientSupplier = () -> Ingredient.of(repairIngredient.get());
 
                 return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,

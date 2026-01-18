@@ -85,7 +85,7 @@ public class LightArmorItem extends ArmorItem {
     }
     @Override
     public boolean isValidRepairItem(ItemStack pStack, ItemStack pRepairCandidate) {
-        // Bu zırhın materyalinden tamir malzemesini çek ve kontrol et
+
         return this.getMaterial().value().repairIngredient().get().test(pRepairCandidate)
             || super.isValidRepairItem(pStack, pRepairCandidate);
     }

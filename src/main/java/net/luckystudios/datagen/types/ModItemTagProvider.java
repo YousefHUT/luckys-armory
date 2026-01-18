@@ -63,5 +63,43 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.HEAVY_GOLDEN_LEGGINGS.get())
                 .add(ModItems.HEAVY_GOLDEN_BOOTS.get())
         ;
+
+        this.tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
+                .add(ModItems.HEAVY_IRON_HELMET.get())
+                .add(ModItems.HEAVY_GOLDEN_HELMET.get())
+                .add(ModItems.HEAVY_DIAMOND_HELMET.get())
+                .add(ModItems.HEAVY_NETHERITE_HELMET.get());
+
+        this.tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
+                .add(ModItems.LIGHT_IRON_CHESTPLATE.get())
+                .add(ModItems.LIGHT_GOLDEN_CHESTPLATE.get())
+                .add(ModItems.LIGHT_DIAMOND_CHESTPLATE.get())
+                .add(ModItems.LIGHT_NETHERITE_CHESTPLATE.get())
+                .add(ModItems.HEAVY_IRON_CHESTPLATE.get())
+                .add(ModItems.HEAVY_GOLDEN_CHESTPLATE.get())
+                .add(ModItems.HEAVY_DIAMOND_CHESTPLATE.get())
+                .add(ModItems.HEAVY_NETHERITE_CHESTPLATE.get());
+
+        this.tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
+                .add(ModItems.LIGHT_IRON_LEGGINGS.get())
+                .add(ModItems.LIGHT_GOLDEN_LEGGINGS.get())
+                .add(ModItems.LIGHT_DIAMOND_LEGGINGS.get())
+                .add(ModItems.LIGHT_NETHERITE_LEGGINGS.get())
+                .add(ModItems.HEAVY_IRON_LEGGINGS.get())
+                .add(ModItems.HEAVY_GOLDEN_LEGGINGS.get())
+                .add(ModItems.HEAVY_DIAMOND_LEGGINGS.get())
+                .add(ModItems.HEAVY_NETHERITE_LEGGINGS.get());
+
+        this.tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
+                .add(ModItems.HEAVY_IRON_BOOTS.get())
+                .add(ModItems.HEAVY_GOLDEN_BOOTS.get())
+                .add(ModItems.HEAVY_DIAMOND_BOOTS.get())
+                .add(ModItems.HEAVY_NETHERITE_BOOTS.get());
+
+        this.tag(ItemTags.ARMOR_ENCHANTABLE)
+                .addTag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
+                .addTag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
+                .addTag(ItemTags.LEG_ARMOR_ENCHANTABLE)
+                .addTag(ItemTags.FOOT_ARMOR_ENCHANTABLE);
     }
 }

@@ -221,41 +221,43 @@ public class ModArmorMaterials {
         return ItemInteractionResult.sidedSuccess(level.isClientSide);
     };
 
-    private static Holder<ArmorMaterial> register(
-            String name,
-            EnumMap<ArmorItem.Type, Integer> typeProtection,
-            Holder<SoundEvent> equipSound,
-            int enchantability,
-            float toughness,
-            float knockbackResistance,
-            Supplier<Item> repairIngredient) {
-        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
-        Supplier<Ingredient> ingredient = () -> Ingredient.of(repairIngredient.get());
-        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(location));
+        private static Holder<ArmorMaterial> register(
+                String name,
+                EnumMap<ArmorItem.Type, Integer> typeProtection,
+                Holder<SoundEvent> equipSound,
+                int enchantability,
+                float toughness,
+                float knockbackResistance,
+                Supplier<Item> repairIngredient) {
 
-        EnumMap<HeavyArmorItem.Type, Integer> typeMap = new EnumMap<>(HeavyArmorItem.Type.class);
-        for (HeavyArmorItem.Type type : ArmorItem.Type.values()) {
-            typeMap.put(type, typeProtection.get(type));
+                ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
+
+                // Önemli: Ingredient'i burada bir kez oluşturuyoruz ki JEI tararken sorun yaşamasın
+                Supplier<Ingredient> ingredientSupplier = () -> Ingredient.of(repairIngredient.get());
+
+                List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(location));
+
+                // ArmorMaterial kaydı
+                return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,
+                        new ArmorMaterial(typeProtection, enchantability, equipSound, ingredientSupplier, layers, toughness, knockbackResistance));
         }
 
-        return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,
-                new ArmorMaterial(typeProtection, enchantability, equipSound, ingredient, layers, toughness, knockbackResistance));
-    }
+        private static Holder<ArmorMaterial> register(
+                String name,
+                EnumMap<ArmorItem.Type, Integer> typeProtection,
+                int enchantability,
+                Holder<SoundEvent> equipSound,
+                float toughness,
+                float knockbackResistance,
+                Supplier<Item> repairIngredient,
+                List<ArmorMaterial.Layer> layers) {
 
-    private static Holder<ArmorMaterial> register(
-            String name,
-            EnumMap<ArmorItem.Type, Integer> typeProtection,
-            int enchantability,
-            Holder<SoundEvent> equipSound,
-            float toughness,
-            float knockbackResistance,
-            Supplier<Item> repairIngredient,
-            List<ArmorMaterial.Layer> layers) {
+                ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
+                
+                // Ingredient önbelleğe alınıyor
+                Supplier<Ingredient> ingredientSupplier = () -> Ingredient.of(repairIngredient.get());
 
-        ResourceLocation location = ResourceLocation.fromNamespaceAndPath(LuckysArmory.MOD_ID, name);
-        Supplier<Ingredient> ingredient = () -> Ingredient.of(repairIngredient.get());
-
-        return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,
-                new ArmorMaterial(typeProtection, enchantability, equipSound, ingredient, layers, toughness, knockbackResistance));
-    }
+                return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, location,
+                        new ArmorMaterial(typeProtection, enchantability, equipSound, ingredientSupplier, layers, toughness, knockbackResistance));
+        }
 }

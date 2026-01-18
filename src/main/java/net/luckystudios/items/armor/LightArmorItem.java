@@ -83,4 +83,10 @@ public class LightArmorItem extends ArmorItem {
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
+    @Override
+    public boolean isValidRepairItem(ItemStack pStack, ItemStack pRepairCandidate) {
+        // Bu zırhın materyalinden tamir malzemesini çek ve kontrol et
+        return this.getMaterial().value().repairIngredient().get().test(pRepairCandidate)
+            || super.isValidRepairItem(pStack, pRepairCandidate);
+    }
 }

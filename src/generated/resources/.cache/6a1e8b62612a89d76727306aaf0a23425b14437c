@@ -1,4 +1,9 @@
-// 1.21.1	2025-05-03T21:20:22.9185492	Tags for minecraft:item mod id luckysarmory
+// 1.21.1	2026-01-18T20:31:56.514489391	Tags for minecraft:item mod id luckysarmory
 a065c3340b650674e8cdbde27e2d9c1107764ec7 data/minecraft/tags/item/dyeable.json
+23f2e550b91fdf3fc2ed2c7cc97afe2f7aac00bd data/minecraft/tags/item/enchantable/armor.json
+5936848e794fce852258584985149e2145d4d598 data/minecraft/tags/item/enchantable/chest_armor.json
+e8d347e5a4f0c30a3987488b44fcb84e187cbb8e data/minecraft/tags/item/enchantable/foot_armor.json
+33ae2ecabf75aa20180b60117256338db696f790 data/minecraft/tags/item/enchantable/head_armor.json
+666a527928c7132cf4983bde08dbcf7df3c3eaa6 data/minecraft/tags/item/enchantable/leg_armor.json
 86fcbf95606dcdd42093c07e0e819a7395530e48 data/minecraft/tags/item/piglin_loved.json
 e2effeafcf0014306552a840614d8bd5a245309c data/minecraft/tags/item/trimmable_armor.json

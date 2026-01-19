@@ -89,4 +89,8 @@ public class LightArmorItem extends ArmorItem {
         return this.getMaterial().value().repairIngredient().get().test(pRepairCandidate)
             || super.isValidRepairItem(pStack, pRepairCandidate);
     }
+    @Override
+        public ItemAttributeModifiers getDefaultAttributeModifiers() {
+            return defaultModifiers.get();
+        }
 }
